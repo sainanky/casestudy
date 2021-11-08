@@ -4,6 +4,14 @@
             <i class="zmdi zmdi-view-column" [ngClass]="{'active' : this.isGridView}" (click)="isGridView = true"></i>
             <i class="zmdi zmdi-view-list-alt" [ngClass]="{'active' : !this.isGridView}" (click)="isGridView = false"></i>
         </div>
+        <div class="price_filter">
+            <select class="" [(ngModel)]="priceFilterVal" (change)="filterData()">
+                <option value="">Price Filter</option>
+                <option value="low">Low To High</option>
+                <option value="high">High to Low</option>
+                <option value="relevance">Relevance</option>
+            </select>
+        </div>
     </div>
     <ul class="cards">
         <ng-container *ngFor="let item of dataArr;">

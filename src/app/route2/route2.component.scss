@@ -8,7 +8,9 @@ $gray-lightest:             lighten($gray-lighter,4%);
 .header{
   // display: grid;
   // grid-template-columns: auto auto;
+  display: flex;
   .price_row{
+    margin-left: auto;
     width: 80px;
     background: #df6f20;
     i.active{

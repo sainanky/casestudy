@@ -9,7 +9,9 @@ export class Route2Component implements OnInit {
 
   constructor() { }
   dataArr : any = [];
+  globalDataArr : any = [];
   isGridView : boolean = true;
+  priceFilterVal : string = '';
 
   ngOnInit(): void {
     this.getData();
@@ -20,8 +22,24 @@ export class Route2Component implements OnInit {
     .then(res=>res.json())
     .then(json=> {
       this.dataArr = json;
-      console.log(json)
+      this.globalDataArr = [...this.dataArr];
     });
+  }
+
+  filterData(){
+    let param = this.priceFilterVal;
+    let gDataArr = [...this.globalDataArr];
+    if(param == 'low'){
+      this.dataArr = gDataArr.sort((a : any,b : any)=>{
+        return a.price - b.price;
+      })
+    }
+    else if(param == 'high'){
+      this.dataArr = gDataArr.sort((a : any,b : any)=>{
+        return b.price - a.price;
+      })
+    }
+    else this.dataArr = gDataArr;
   }
 
 }
