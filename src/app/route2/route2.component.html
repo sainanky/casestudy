@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="header">
+        <div class="price_row">
+            <i class="zmdi zmdi-view-column" [ngClass]="{'active' : this.isGridView}" (click)="isGridView = true"></i>
+            <i class="zmdi zmdi-view-list-alt" [ngClass]="{'active' : !this.isGridView}" (click)="isGridView = false"></i>
+        </div>
+    </div>
+    <ul class="cards">
+        <ng-container *ngFor="let item of dataArr;">
+            <li class="cards__item" [ngClass]="{'cards__item__grid' : isGridView, 'cards__item__list' : !isGridView}">
+                <div class="card">
+                    <div class="card__image" [style.background-image]="'url(' + item.image + ')'"></div>
+                    <div class="card__content">
+                    <div class="card__title">{{item.title}}</div>
+                    <p class="card__text">{{item.description?.substring(0,200)}}...</p>
+                    <div class="card__more">
+                        <div class="card__price">
+                            {{item.price | currency : 'INR'}}
+                        </div>
+                        <div class="card__rating">
+                            <i class="zmdi zmdi-star-outline" [ngClass]="{'zmdi-star' : item.rating.rate > 0}"></i>
+                            <i class="zmdi zmdi-star-outline" [ngClass]="{'zmdi-star' : item.rating.rate > 1}"></i>
+                            <i class="zmdi zmdi-star-outline" [ngClass]="{'zmdi-star' : item.rating.rate > 2}"></i>
+                            <i class="zmdi zmdi-star-outline" [ngClass]="{'zmdi-star' : item.rating.rate > 3}"></i>
+                            <i class="zmdi zmdi-star-outline" [ngClass]="{'zmdi-star' : item.rating.rate > 4}"></i>
+                        </div>
+                    </div>
+                    <button class="btn btn--block card__btn">Buy Now</button>
+                    </div>
+                </div>
+            </li>
+        </ng-container>
+    </ul>
+</div>
