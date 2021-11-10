@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Observable, timer, range, Subject } from 'rxjs';
 import { map, takeUntil, takeWhile, tap } from 'rxjs/operators';
 import * as moment from 'moment';
+import { Route4Service } from '../route4.service';
 
 @Component({
   selector: 'app-comp2',
@@ -10,9 +11,8 @@ import * as moment from 'moment';
 })
 export class Comp2Component implements OnInit {
 
-  constructor() { }
+  constructor(private _route4 : Route4Service) { }
   isStart : boolean = true;
-  @Output() opTimer = new EventEmitter<number>();
   timerVal : number = 0;
   countDown : any;
   timerBox : any;
@@ -20,8 +20,6 @@ export class Comp2Component implements OnInit {
   startCount : number = 0;
   pausedCount : number = 0;
   timerDateLogArr : any = [];
-  @Output() opComp3Count = new EventEmitter<any>();
-  @Output() opComp4Count = new EventEmitter<any>();
 
   ngOnInit(): void {
   }
@@ -29,7 +27,7 @@ export class Comp2Component implements OnInit {
   start(){
     this.isStart = false;
     this.startCount++;
-    this.opComp4Count.emit({
+    this._route4.setComp4Info({
       start : this.startCount,
       paused : this.pausedCount
     });
@@ -41,7 +39,7 @@ export class Comp2Component implements OnInit {
     .subscribe((i : number) => {
       if(!this.isStart){
         this.timerVal--;
-        this.opTimer.next(this.timerVal);
+        this._route4.setComp1Info(this.timerVal);
       }
     });
     
@@ -50,7 +48,7 @@ export class Comp2Component implements OnInit {
   stop(){
     this.isStart = true;
     this.pausedCount++;
-    this.opComp4Count.emit({
+    this._route4.setComp4Info({
       start : this.startCount,
       paused : this.pausedCount
     });
@@ -63,16 +61,16 @@ export class Comp2Component implements OnInit {
     this.isStart = true;
     this.timerVal = 0;
     this.timerDateLogArr = [];
-    this.opTimer.emit(this.timerVal);
-    this.opComp3Count.emit(this.timerDateLogArr);
-    this.opComp4Count.emit({});
+    this._route4.setComp1Info(this.timerVal);
+    this._route4.setComp3Info(this.timerDateLogArr);
+    this._route4.setComp4Info({});
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }
 
   addTimerLog(param : string){
     this.timerDateLogArr.push(`${param} - ${moment().format('DD-MM-yyyy hh:mm:ss a')}`);
-    this.opComp3Count.emit(this.timerDateLogArr);
+    this._route4.setComp3Info(this.timerDateLogArr);
   }
 
   ngOnDestroy(){
