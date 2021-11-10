@@ -9,13 +9,22 @@ export class Route3Component implements OnInit {
 
   constructor() { }
   timerVal : number = 0;
+  comp3Counts : any;
+  comp4Counts : any;
 
   ngOnInit(): void {
   }
 
   getTimer(ev : any){
-    console.log(ev)
     this.timerVal = ev;
+  }
+
+  getComp4Count(ev : any){
+    this.comp4Counts = ev;
+  }
+
+  getComp3Count(ev : any){
+    this.comp3Counts = ev;
   }
 
 }

@@ -3,12 +3,12 @@
         <app-comp1 [timerVal]="timerVal"></app-comp1>
     </div>
     <div class="comp_2 comp_same">
-        <app-comp2 (opTimer)="getTimer($event)"></app-comp2>
+        <app-comp2 (opTimer)="getTimer($event)" (opComp4Count)="getComp4Count($event)" (opComp3Count)="getComp3Count($event)"></app-comp2>
     </div>
     <div class="comp_3 comp_same">
-        <app-comp3></app-comp3>
+        <app-comp3 [countArr]="comp3Counts"></app-comp3>
     </div>
     <div class="comp_4 comp_same">
-        <app-comp4></app-comp4>
+        <app-comp4 [count]="comp4Counts"></app-comp4>
     </div>
 </div>

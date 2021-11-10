@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-comp4',
@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class Comp4Component implements OnInit {
 
   constructor() { }
+  @Input() count : any;
 
   ngOnInit(): void {
   }

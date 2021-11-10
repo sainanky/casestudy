@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-comp3',
@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class Comp3Component implements OnInit {
 
   constructor() { }
+  @Input() countArr : any;
 
   ngOnInit(): void {
   }
