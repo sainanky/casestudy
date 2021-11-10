@@ -8,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class Route3Component implements OnInit {
 
   constructor() { }
+  timerVal : number = 0;
 
   ngOnInit(): void {
+  }
+
+  getTimer(ev : any){
+    console.log(ev)
+    this.timerVal = ev;
   }
 
 }

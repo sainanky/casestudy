@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+        <label for="">Enter Timer Limit</label>
+        <input type="number" class="text_input" placeholder="enter timer unit" [(ngModel)]="timerVal">
+    </div>
+    <div class="row">
+        <button *ngIf="isStart" class="btn btn_start" (click)="start()">Start</button>
+        <button *ngIf="!isStart" class="btn btn_pause" (click)="stop()">Pause</button>
+        <button class="btn btn_reset">Reset</button>
+    </div>
+</div>

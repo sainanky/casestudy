@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { Route1Component } from './route1/route1.component';
 import { Route2Component } from './route2/route2.component';
-import { Route3Component } from './route3/route3.component';
+import { Route3Module } from './route3/route3.module';
 import { Route4Component } from './route4/route4.component';
 import { Route5Component } from './route5/route5.component';
 import { Route6Component } from './route6/route6.component';
@@ -27,7 +27,7 @@ const routes : Routes = [
   },
   {
     path : "route3",
-    component : Route3Component
+    loadChildren : ()=> Route3Module
   },
   {
     path : "route4",
@@ -52,7 +52,6 @@ const routes : Routes = [
     AppComponent,
     Route1Component,
     Route2Component,
-    Route3Component,
     Route4Component,
     Route5Component,
     Route6Component
