@@ -21,7 +21,6 @@ export class Route5Component implements OnInit {
 
   getData(){
     this._data.getJSON().subscribe(res=>{
-      console.log(res)
       if(res['data']) {
         this.dataArr = res['data'];
         this.globalArr = [...this.dataArr];
@@ -41,7 +40,6 @@ export class Route5Component implements OnInit {
       this.dataArr = dataArr.sort((a : any, b : any) => a[colName] > b[colName] ? 1 : a[colName] < b[colName] ? -1 : 0)
     }
     else this.dataArr = dataArr;
-    console.log(this.cloumnsStatus)
   }
 
 }

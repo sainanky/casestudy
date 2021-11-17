@@ -1,1 +1,5 @@
-<p>route6 works!</p>
+<div class="container" (scroll)="onScroll($event)">
+    <div class="content" *ngFor="let container of containers; let i = index;">
+        <button class="btn" (click)="buttonClicked(i)">Button</button>
+    </div>
+</div>
