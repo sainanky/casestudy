@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,6 +12,7 @@ import { Route4Component } from './route4/route4.component';
 import { Route4Module } from './route4/route4.module';
 import { Route5Component } from './route5/route5.component';
 import { Route6Component } from './route6/route6.component';
+import { DataService } from './services/data/data.service';
 
 const routes : Routes = [
   {
@@ -57,9 +59,9 @@ const routes : Routes = [
     Route6Component
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(routes), FormsModule
+    BrowserModule, RouterModule.forRoot(routes), FormsModule, HttpClientModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

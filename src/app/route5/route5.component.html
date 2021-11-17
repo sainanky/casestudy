@@ -1,1 +1,48 @@
-<p>route5 works!</p>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th (click)="sort('name')">
+                    Name
+                    <i *ngIf="cloumnsStatus.name == 'asc'" class="zmdi zmdi-caret-up"></i>
+                    <i *ngIf="cloumnsStatus.name == 'desc'" class="zmdi zmdi-caret-down"></i>
+                </th>
+                <th (click)="sort('class')">
+                    Class
+                    <i *ngIf="cloumnsStatus.class == 'asc'" class="zmdi zmdi-caret-up"></i>
+                    <i *ngIf="cloumnsStatus.class == 'desc'" class="zmdi zmdi-caret-down"></i>
+                </th>
+                <th (click)="sort('section')">
+                    Section
+                    <i *ngIf="cloumnsStatus.section == 'asc'" class="zmdi zmdi-caret-up"></i>
+                    <i *ngIf="cloumnsStatus.section == 'desc'" class="zmdi zmdi-caret-down"></i>
+                </th>
+                <th (click)="sort('sub1')">
+                    Sub1
+                    <i *ngIf="cloumnsStatus.sub1 == 'asc'" class="zmdi zmdi-caret-up"></i>
+                    <i *ngIf="cloumnsStatus.sub1 == 'desc'" class="zmdi zmdi-caret-down"></i>
+                </th>
+                <th (click)="sort('sub2')">
+                    Sub2
+                    <i *ngIf="cloumnsStatus.sub2 == 'asc'" class="zmdi zmdi-caret-up"></i>
+                    <i *ngIf="cloumnsStatus.sub2 == 'desc'" class="zmdi zmdi-caret-down"></i>
+                </th>
+                <th (click)="sort('sub3')">
+                    Sub3
+                    <i *ngIf="cloumnsStatus.sub3 == 'asc'" class="zmdi zmdi-caret-up"></i>
+                    <i *ngIf="cloumnsStatus.sub3 == 'desc'" class="zmdi zmdi-caret-down"></i>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of dataArr;let i = index;">
+                <td>{{item.name}}</td>
+                <td>{{item.class}}</td>
+                <td>{{item.section}}</td>
+                <td>{{item.sub1}}</td>
+                <td>{{item.sub2}}</td>
+                <td>{{item.sub3}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
